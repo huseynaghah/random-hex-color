@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h2>Change The Background</h2>
+        <input type="text" id="color"><button onclick="copy()" id="copy">Copy</button>
+        <button id="create">Generate</button>
+    </div>
+</body>
+<script>
+    const setBg = () => {
+        const randomColor = Math.floor(Math.random() * 16777215).toString(16);
+        document.body.style.backgroundColor = "#" + randomColor;
+        document.getElementById('color').value = "#" + randomColor;
+    }
+
+    document.getElementById("create").addEventListener("click", setBg);
+    setBg();
+
+    function copy() {
+ 
+  var copyText = document.getElementById("color");
+
+  // Select the text field
+  copyText.select();
+  copyText.setSelectionRange(0, 99999); 
+
+   // Copy the text inside the text field
+  navigator.clipboard.writeText(copyText.value);
+
+  // Alert the copied text
+  alert("Copied the text: " + copyText.value);}
+</script>
+
+</html>
